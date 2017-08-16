@@ -1,5 +1,7 @@
 [user]
-	email = cesdperez@gmail.com
+	email = cperez@starmount.com
 	name = Cesar Daniel Perez
 [core]
 	editor = vim
+[alias]
+	clean-branches = "!git branch | grep -ve " master$" | xargs git branch -D"
