@@ -19,6 +19,7 @@
       <package name="" withSubpackages="true" static="false" />
     </value>
   </option>
+  <option name="FORMATTER_TAGS_ENABLED" value="true" />
   <editorconfig>
     <option name="ENABLED" value="false" />
   </editorconfig>
