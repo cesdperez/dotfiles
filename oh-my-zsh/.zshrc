@@ -50,3 +50,15 @@ alias iinventory="idea /opt/projects/inventory-hub &"
 # Git
 alias gcleann="git reset --hard HEAD && git clean -df"
 alias gupom='git pull --rebase origin master'
+
+# AWS
+function aws-ip() {
+  aws-info $1 | cut -f1
+}
+
+function aws-info() {
+  aws ec2 describe-instances \
+    --filters Name=tag:Name,Values=$1 \
+    --query 'Reservations[].Instances[].[PrivateIpAddress,InstanceId,Tags[?Key==`Name`].Value[]]' \
+    --output text | sed '$!N;s/\n/ /'
+}
