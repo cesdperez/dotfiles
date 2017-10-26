@@ -51,13 +51,24 @@ alias iinventory="idea /opt/projects/inventory-hub &"
 alias gcleann="git reset --hard HEAD && git clean -df"
 alias gupom='git pull --rebase origin master'
 
+# Docker
+## Kill all running containers.
+alias dockerkillall='docker kill $(docker ps -q)'
+## Delete all stopped containers.
+alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+## Delete all untagged images.
+alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+## Delete all stopped containers and untagged images.
+alias dockerclean='dockercleanc || true && dockercleani'
+
 # AWS
 function aws-ip() {
-  aws-info $1 | cut -f1
+  aws-info $1 $2 | cut -f1
 }
 
 function aws-info() {
-  aws ec2 describe-instances \
+  profile=${2-default}
+  aws ec2 --profile $profile describe-instances \
     --filters Name=tag:Name,Values=$1 \
     --query 'Reservations[].Instances[].[PrivateIpAddress,InstanceId,Tags[?Key==`Name`].Value[]]' \
     --output text | sed '$!N;s/\n/ /'
