@@ -52,24 +52,21 @@ alias gcleann="git reset --hard HEAD && git clean -df"
 alias gupom='git pull --rebase origin master'
 
 # Docker
-## Kill all running containers.
-alias dockerkillall='docker kill $(docker ps -q)'
-## Delete all stopped containers.
-alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
-## Delete all untagged images.
-alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
-## Delete all stopped containers and untagged images.
-alias dockerclean='dockercleanc || true && dockercleani'
+alias dkillall='docker kill $(docker ps -q)'
+alias dcleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+alias dcleani='printf "\n>>> Deleting dangling images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+alias dcleanv='printf "\n>>> Deleting dangling volumes\n\n" && docker volume rm $(docker volume ls -qf dangling=true)'
+alias dclean='dcleanc || true && dcleani || true && dcleanv'
 
 # AWS
 function aws-ip() {
-  aws-info $1 $2 | cut -f1
+  aws-info "$1" "$2" | cut -f1
 }
 
 function aws-info() {
   profile=${2-default}
-  aws ec2 --profile $profile describe-instances \
-    --filters Name=tag:Name,Values=$1 \
+  aws ec2 --profile "$profile" describe-instances \
+    --filters Name=tag:Name,Values="$1" \
     --query 'Reservations[].Instances[].[PrivateIpAddress,InstanceId,Tags[?Key==`Name`].Value[]]' \
     --output text | sed '$!N;s/\n/ /'
 }
