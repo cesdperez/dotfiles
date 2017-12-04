@@ -12,7 +12,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
-export PATH="$PATH:/opt/bin:$HOME/bin"
+export PATH="$PATH:/opt/bin:$HOME/bin:$HOME/.node_modules/bin"
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -20,14 +20,17 @@ else
   export EDITOR='subl'
 fi
 
-##Postgres
+# Postgres
 export PGDATA="/opt/postgresql-9.4/data"
 export PGRAMDATA="/opt/postgresql-9.4/data_tmpfs"
 export PGPASSWORD="postgres"
 
-##Tomcat
+# Tomcat
 export CATALINA_HOME="/opt/apache-tomcat-7"
 export CATALINA_BASE="$CATALINA_HOME"
+
+# NPM
+export npm_config_prefix=~/.node_modules
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/opt/sdkman"
