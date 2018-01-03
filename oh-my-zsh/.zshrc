@@ -20,6 +20,10 @@ else
   export EDITOR='subl'
 fi
 
+# NPM
+export npm_config_prefix=~/.node_modules
+
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/opt/sdkman"
 [[ -s "/opt/sdkman//bin/sdkman-init.sh" ]] && source "/opt/sdkman//bin/sdkman-init.sh"
