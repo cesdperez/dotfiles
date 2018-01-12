@@ -48,6 +48,7 @@ alias ienact="idea /opt/projects/enact &"
 alias itpp="idea /opt/projects/enact-tpp &"
 alias ipreserve="idea /opt/projects/preserve &"
 alias iaccount="idea /opt/projects/account/server/pom.xml &"
+alias iconfigapi="idea /opt/projects/account/config-api/pom.xml &"
 alias iinventory="idea /opt/projects/inventory-hub &"
 
 # Git
