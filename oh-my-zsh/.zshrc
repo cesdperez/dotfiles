@@ -50,6 +50,7 @@ alias ipreserve="idea /opt/projects/preserve &"
 alias iaccount="idea /opt/projects/account/server/pom.xml &"
 alias iconfigapi="idea /opt/projects/account/config-api/pom.xml &"
 alias iinventory="idea /opt/projects/inventory-hub &"
+alias iengage="idea /opt/projects/engage/server &"
 
 # Git
 alias gcleann="git reset --hard HEAD && git clean -df"
