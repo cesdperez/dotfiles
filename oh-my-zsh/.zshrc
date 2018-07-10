@@ -29,8 +29,14 @@ export PGPASSWORD="postgres"
 export CATALINA_HOME="/opt/apache-tomcat-7"
 export CATALINA_BASE="$CATALINA_HOME"
 
+#Maven java 7
+export MAVEN_OPTS="-XX:MaxPermSize=2g -XX:PermSize=1g"
+
 # NPM
 export npm_config_prefix=~/.node_modules
+
+# Infor
+export BACKOFFICE_HOME=/opt/backoffice
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/opt/sdkman"
