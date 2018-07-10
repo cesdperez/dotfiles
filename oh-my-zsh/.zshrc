@@ -29,9 +29,6 @@ export PGPASSWORD="postgres"
 export CATALINA_HOME="/opt/apache-tomcat-7"
 export CATALINA_BASE="$CATALINA_HOME"
 
-#Maven java 7
-export MAVEN_OPTS="-XX:MaxPermSize=2g -XX:PermSize=1g"
-
 # NPM
 export npm_config_prefix=~/.node_modules
 
