@@ -1,7 +1,7 @@
 export ZSH=/opt/oh-my-zsh
 
 ZSH_THEME="robbyrussell"
-plugins=(git mvn archlinux)
+plugins=(git mvn archlinux aws)
 
 source $ZSH/oh-my-zsh.sh
 
