@@ -1,7 +1,7 @@
 export ZSH=/opt/oh-my-zsh
 
 ZSH_THEME="robbyrussell"
-plugins=(git mvn archlinux aws)
+plugins=(git mvn archlinux aws docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
