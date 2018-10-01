@@ -59,13 +59,6 @@ alias iengage="idea /opt/projects/engage/server &"
 alias gcleann="git reset --hard HEAD && git clean -df"
 alias gupom='git pull --rebase origin master'
 
-# Docker
-alias dkillall='docker kill $(docker ps -q)'
-alias dcleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
-alias dcleani='printf "\n>>> Deleting dangling images\n\n" && docker rmi $(docker images -q -f dangling=true)'
-alias dcleanv='printf "\n>>> Deleting dangling volumes\n\n" && docker volume rm $(docker volume ls -qf dangling=true)'
-alias dclean='dcleanc || true && dcleani || true && dcleanv'
-
 # AWS
 function aws-ip() {
   aws-info "$1" "$2" | cut -f1
