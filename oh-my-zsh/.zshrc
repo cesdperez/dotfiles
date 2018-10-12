@@ -43,6 +43,10 @@ export SDKMAN_DIR="/opt/sdkman"
 ## aliases ##
 #############
 
+# KDE
+alias plasmakill="kquitapp5 plasmashell && kstart plasmashell"
+
+# Postgres
 alias pgctl="pg_ctl"
 alias pgramctl="pg_ctl -D $PGRAMDATA"
 
