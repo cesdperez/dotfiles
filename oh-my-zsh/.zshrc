@@ -12,7 +12,7 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
-export PATH="$PATH:/opt/bin:$HOME/bin:$HOME/.node_modules/bin"
+export PATH="$PATH:/opt/bin:$HOME/bin:$HOME/.local/bin:$HOME/.node_modules/bin"
 
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
