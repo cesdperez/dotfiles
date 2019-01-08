@@ -64,14 +64,9 @@ alias gcleann="git reset --hard HEAD && git clean -df"
 alias gupom='git pull --rebase origin master'
 
 # AWS
-function aws-ip() {
-  aws-info "$1" "$2" | cut -f1
-}
-
-function aws-info() {
-  profile=${2-default}
-  aws ec2 --profile "$profile" describe-instances \
-    --filters Name=tag:Name,Values="$1" \
-    --query 'Reservations[].Instances[].[PrivateIpAddress,InstanceId,Tags[?Key==`Name`].Value[]]' \
-    --output text | sed '$!N;s/\n/ /'
+function ec2ls(){
+   aws ec2 describe-instances \
+    --filters "Name=tag-value,Values=$1*" \
+    --query 'Reservations[*].Instances[*].[[Tags[?Key==`Name`].Value],PublicIpAddress,PrivateIpAddress,StateTransitionReason]' \
+    --output table
 }
